@@ -1,0 +1,491 @@
+@import './range-mixins.scss';
+
+.gilza-embed-container {
+    position:relative; 
+    width:100%; 
+    max-width: 550px; 
+    background:#ffffff; 
+    overflow:hidden; 
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    
+}
+.gilza-embed-container:before {
+    display:block; 
+    padding-bottom: 55%; 
+    content:""
+}
+.gilza-embed-container iframe {
+    position:absolute; 
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100%; 
+    border:none;
+}
+@media all and (max-width: 768px) {
+    .gilza-embed-container {
+        width:calc(100% - 32px); 
+        max-width:400px;
+    }
+
+    .gilza-public-projects-list {
+        padding-bottom: calc(100vh - 74px) !important;
+    }
+    .gilza-public-projects-list {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    .gilza-embed-container:before {
+        padding-bottom:178%;
+    }
+}  
+
+.public-projects-list-page {
+    padding: 0.3rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (max-width: 768px) {
+    .app-main .public-projects-list-page {
+        padding: 0.3rem 0 1rem;
+    }
+}
+
+// html {
+//     scroll-snap-type: y mandatory;
+// }
+
+.public-project-item {
+    display: flex;
+    padding: 2rem 0;
+    // scroll-snap-align: start;
+    scroll-margin: calc(2rem + 10px) 0 0 0;
+}
+
+.sort-videos {
+    // scroll-snap-align: start;
+    // scroll-snap-stop: always;
+    scroll-margin: 0.5rem calc(2rem + 10px) 0;
+    padding-top: 2rem !important;
+}
+
+.public-project-item .avatar {
+    padding-right: 15px;
+}
+
+.public-project-item .avatar img {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+}
+
+.public-project-item .content-wrapper {
+    width:100%; 
+    max-width: 769px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.public-project-item .project-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.public-project-item .user-info {
+    display: flex;
+}
+
+.public-project-item .project-header .username {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.public-project-item .project-header .username:hover {
+    text-decoration: underline;
+}
+
+.public-project-item .project-header .nickname {
+    font-size: 16px;
+}
+
+.public-project-item .project-header .project-name {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.public-project-item .project-header .project-name:hover {
+    text-decoration: underline;
+}
+
+.public-project-item .project-header .desc {
+    font-size: 16px;
+    padding: 2px 0 12px;
+}
+
+.public-project-item .action-bar {
+    display: flex;
+    font-size: 22px;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 500px;
+    padding-top: 15px;
+}
+
+
+.public-project-item .action-bar .action-bar-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.public-project-item .action-bar svg {
+    color: #263055;
+}
+
+.public-project-item .action-bar .action-bar-item p {
+    padding-left: 7px;
+}
+
+.public-project-item .mobile-project-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+.gilza-public-projects-list:before {
+    display: none;
+}
+
+.media-control-group--seek {
+    width: 100%;
+    margin: 12px 0;
+}
+
+.media-control-group--seek {
+    flex: 1;
+}
+
+.media-control--seekbar {
+    position: relative;
+    z-index: 5;
+  
+    @include -range-track(webkit, moz, ms) {
+      background-color: transparent !important;
+    }
+}
+
+
+
+  
+  .media-control--progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    border: 0;
+    position: absolute;
+    top: 7px;
+  
+    // bar
+    background-color: white;
+    &::-webkit-progress-bar {
+      background-color: white;
+    }
+  
+    // progress
+    color: lighten(white, 5%); // IE
+    &::-moz-progress-bar {
+      background-color: lighten(white, 5%);
+    }
+    &::-webkit-progress-value {
+      background-color: lighten(white, 5%);
+    }
+  }
+
+  input[type='range'] {
+    // reset inputs to a plain state
+    @include -range__reset(webkit, moz, ms);
+  
+    $track-height: 3px;
+    $track-lower-color: #263055;
+    $track-upper-color: white;
+  
+    $thumb-height: 8px;
+    $thumb-width: 8px;
+    $thumb-color: #cdd7db;
+  
+    width: 100%;
+    height: 12px;
+    margin: 0;
+    background-color: transparent;
+  
+    &:hover,
+    &:active {
+      @include -range-thumb(webkit, moz, ms) {
+        transform: scale(1.25);
+      }
+    }
+  
+    @include -range-track(webkit, moz, ms) {
+      width: 100%;
+      height: $track-height;
+      border: 0;
+      cursor: pointer;
+      background-color: $track-upper-color;
+  
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  
+    // so we can style the lower progress
+    &::-webkit-slider-container {
+      background-size: inherit;
+    }
+  
+    @include -range-track(webkit) {
+      background: {
+        image: linear-gradient($track-lower-color, $track-lower-color);
+        size: inherit;
+        repeat: no-repeat;
+      }
+    }
+  
+    @include -range-fill-lower(webkit, moz, ms) {
+      background-color: $track-lower-color;
+    }
+  
+    @include -range-thumb(webkit, moz, ms) {
+      width: $thumb-width;
+      height: $thumb-height;
+      border: 0;
+      border-radius: 50%;
+      background-color: $thumb-color;
+      cursor: grab;
+      transform: scale(1);
+      transform-origin: 50% 50%;
+      transition: transform 150ms ease-out;
+  
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  
+    @include -range-thumb(webkit) {
+      position: relative;
+      top: -2.5px;
+    }
+  }
+
+.infinity-scroll {
+    width: 550px;
+}
+
+@media all and (max-width: 768px) {
+    .infinity-scroll {
+        width: 100%;
+    }
+}
+
+.gilza-public-projects-list {
+    padding-bottom: 90%;
+}
+
+
+
+.gilza-public-projects-list .public-container-page {
+    position: absolute;
+    background: transparent;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: stretch;
+}
+
+.gilza-public-projects-list .public-container-content {
+    display: flex;
+    align-items: stretch;
+    height: auto;
+    margin: 0;
+}
+
+.gilza-public-projects-list .public-container-content .site {
+    height: auto;
+}
+
+.gilza-public-projects-list .site .frames {
+    height: auto;
+}
+
+.public-projects-list-page .main-page-notification {
+    background: #e8f4fd;
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+}
+
+.public-projects-list-page .main-page-notification .close {
+    top: 0.5rem;
+    right: 0.75rem;
+}
+
+.public-projects-list-page .main-page-notification .close:after, .public-projects-list-page .main-page-notification .close:before {
+    background-color: black;
+}
+
+@media (max-width: 1450px) {
+    .gilza-public-projects-list .public-container-page {
+        transform: scale(0.64);
+        width: 160%;
+        left: -30%;
+        height: 160%;
+        top: -30%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .public-projects-list-page {
+        padding: 0 .75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .public-project-item {
+        width: 100%;
+    }    
+}
+
+.gilza-embed-container iframe{
+    border-radius: 16px;
+}
+
+@media all and (max-width: 1440px) {
+    .gilza-public-projects-list {
+        padding-bottom: 70%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .gilza-public-projects-list {
+        padding-bottom: 100%;
+    }
+    .gilza-public-projects-list .public-container-page {
+        transform: scale(1);
+        width: 100%;
+        left: 0%;
+        height: 100%;
+        top: 0%;
+    }
+    .project-header {
+        display: none;
+    }
+}
+
+@media (max-width: 630px) {
+    .gilza-public-projects-list {
+        padding-bottom: 125%;
+    }
+}
+
+@media (max-width: 550px) {
+    .gilza-public-projects-list {
+        padding-bottom: 140%;
+    }
+    
+    .public-project-item iframe {
+        transform: scale(0.75);
+        width: 130%;
+        left: -15%;
+        height: 130%;
+        top: -15%;
+    }
+}
+
+@media (max-width: 450px) {
+    .gilza-public-projects-list {
+        padding-bottom: 160%;
+    }
+}
+
+@media (max-width: 415px) {
+    .public-project-item iframe {
+        transform: scale(0.50);
+        width: 200%;
+        left: -50%;
+        height: 200%;
+        top: -50%;
+    }
+    
+}
+
+@media (max-width: 1050px) {
+    .forum-news {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .sort-videos .filter{
+        display: none;
+    }   
+}
+
+@media (max-width: 450px) {
+    .sort-videos .order-by{
+        display: none;
+    }   
+    .sort-videos .time{
+        display: none;
+    }   
+    .sort-videos .MuiFormControl-root {
+        margin: 0 20px;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .single-project-pc {
+        background: linear-gradient(115deg, #303a45, #424e5b); 
+    }
+
+    .single-project-pc .public-container-content{
+        width: 100vh !important;
+        height: 90vh;
+        min-height: 90vh;
+    }
+    .single-project-pc .site{
+        height: 90vh !important;
+        min-height: 90vh;
+        border-radius: 10px;
+
+    }
+    .single-project-pc .site .frames{
+        height: 90vh;
+        min-height: 90vh;
+    }
+    .site{
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .single-project {
+        padding: 0 !important;
+    }
+    .single-project .gilza-public-projects-list {
+        padding-bottom: 100vh !important;
+    }
+}
+
+.public-projects-list-page {
+
+}

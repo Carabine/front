@@ -1,0 +1,101 @@
+.mediafiles-page {
+    display: flex;
+    width: 100%;
+}
+
+.mediafiles-page .video-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.mediafiles-page .video-list .card-img-wrapper .pen-icon{
+    position: relative;
+    top: -2.5px;
+    left: 2px;
+}
+
+.mediafiles-page .video-list .card-img-wrapper .text svg{
+    cursor: pointer;
+}
+
+.mediafiles-page .video-list .card-img-wrapper input {
+    border: none;
+    border-bottom: #dedede solid 1px;
+}
+
+@media (max-width: 599px) {
+    .mediafiles-page .video-list .MuiGrid-container {
+        display: flex;
+        justify-content: center;
+    }
+    .mediafiles-page .video-list h5 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1279.98px) {
+    .video-list .app-inner-content-layout--main {
+        height: calc(100vh - 74px);
+    }      
+}
+
+.mediafiles-page .video-preview .video-name svg {margin-left: 0.5rem; box-shadow: #bebebe 0 0 0.5rem; border-radius: 5px; cursor: pointer;}
+.mediafiles-page .video-preview .video-name svg:hover {transform: scale(1.05)}
+
+
+.video-list .video-picture {
+    padding-bottom: 120%;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.video-list .video-item .video-item-content svg {
+    font-size: 4rem;
+    color: $muiSecondary;
+}
+
+.video-preview-modal {
+    background-color: transparent;
+}
+
+.video-preview-modal .MuiDialog-container{
+    background-color: transparent;
+}
+
+.video-preview-modal .MuiDialog-paperScrollPaper {
+    background-color: rgba(0, 0, 0, 1);
+
+}
+
+.video-preview-modal .media {
+    width: 41.4vh;
+    height: 74.7vh;
+    margin: auto;
+}
+
+.video-preview-modal video {
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .mediafiles-page {
+        flex-direction: column;
+        width: 100%;
+    }
+    .mediafiles-page .video-list{
+        width: 100%;
+    }
+    
+    .mediafiles-page .video-preview {
+        width: 100%;
+        padding: 5rem 0 2rem; 
+        height: 100%;
+    }
+    .video-preview video {
+        width: 60vw;
+        height: 110vw;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,356 @@
+body {
+    font-family: sans-serif;
+    font-size: 0.875rem;
+}
+
+.app-page {
+    height: 100%;
+    width: 100%;
+}
+
+.preloader-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.dialog-wrapper {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 24px;
+    top: 16px;
+    width: 22.5px;
+    height: 22.5px;
+    cursor: pointer;
+}
+
+.close:hover:before, .close:hover:after {
+    background-color: #475E7A !important;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: '';
+    height: 25px;
+    width: 2px;
+    background-color: #91AED1;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.plus {
+    display:inline-block;
+    width: 70px;
+    height: 70px;
+    background:
+        linear-gradient(#fff,#fff),
+        linear-gradient(#fff,#fff),
+        $muiSecondary;
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+}
+
+.radius {
+    border-radius:50%;
+}
+
+.clickable {
+    cursor: pointer !important;
+}
+
+.private-page {
+    display: flex;
+}
+
+.MuiDialogContent-root {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+}
+
+.drag-drop-modal .MuiDialogContent-root {
+    padding: 0;
+}
+
+.drag-drop-modal .drag-drop-content {
+    text-align: center;
+    font-size: 20px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.drag-drop-content #alert-dialog-title {
+    text-align: left;
+}
+
+.drag-drop-content .MuiDialogContent-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.MuiDialogContent-root div:nth-child(2) {
+    padding: 10px 0;
+}
+
+
+.drag-drop-modal .MuiButton-root.disable {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.drag-drop-modal .files-container {
+    text-align: left;
+    font-size: 15px;
+    margin-bottom: auto;
+    width: 100%;
+} 
+
+.drag-drop-modal .files-container .file-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 44px 10px 24px;
+    position: relative;
+}
+
+.file-item .delete-video, .file-item .video-persent {
+    right: 24px;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20px;
+    height: 20px;
+}
+
+.file-item .video-persent {
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+ 
+.file-item .delete-video:after, .file-item .delete-video:before {
+    width: 2px;
+    height: 20px;
+    left: 10px;
+} 
+
+
+.drag-drop-modal .files-container .MuiButton-root {
+    margin-top: 10px;
+    margin-left: 24px;
+}
+
+.drag-drop-modal .files-container .MuiButton-label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.MuiDialogTitle-root {
+    box-shadow: 0 1px 5px 1px #e1e1e1;
+}
+
+.drop-here {
+    width: 60%;
+    height: 13vh;
+    color: white;
+    background-color: #475E7A;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drag-drop-modal .close {
+    z-index: 5;
+}
+
+.drag-drop-modal.uploading .file-item:first-child{
+    opacity: 0.5;
+}
+
+button {
+    border: none;
+}
+
+.dn {
+    display: none !important;
+}
+
+.error-text {
+    color: red;
+}
+
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: $light-neutral;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+	background-color: $light-neutral;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: $twitter;
+}
+
+@media (max-width: 768px) {
+    #alert-dialog-description {
+        font-size: 16px;
+    }
+}
+
+.klk {
+    background-color: #475E7A;
+    z-index: 10000;
+    left: -100;
+    position: absolute;
+}
+
+.media {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.media video {
+    width: 100%;
+}
+
+.media-controls {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.media-controls .top-controls {
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: default;
+}
+
+.media-controls .top-controls .control-item {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.fade-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.fade-overlay .play-btn {
+    margin: auto;
+    z-index: 10;
+}
+
+.fade-overlay .play-btn svg{
+    font-size: 6rem;
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s all;
+}
+
+.fade-overlay .play-btn svg:hover {
+    font-size: 7rem;
+    opacity: 1;
+}
+
+.fade-overlay .play-btn.replay svg:hover {
+    font-size: 6rem;
+    opacity: 1;
+}
+
+@media (min-width: 769px) {
+    .fade-overlay .play-btn.replay {
+        position: static !important;
+        margin: auto !important;
+    }
+    .fade-overlay .play-btn.replay svg:hover {
+        font-size: 7rem;
+        opacity: 1;
+    }
+}
+
+.media .made-with {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    color: white;
+    transition: 0.3s all;
+    max-width: 45%;
+    padding: 0.25rem;
+    border-radius: 5px;
+}
+
+.media .made-with:hover {
+    transform: scale(1.05);
+    background-color: $muiSecondary;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .media-controls .top-controls {
+        font-size: 1.4rem;
+    }
+}
+
+.motion-div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex: 1 1;
+}
+
+.plus {
+    margin: auto;
+}
+
+.no-clickable {
+    cursor: default !important;
+}
+
+@media (max-width: 768px) {
+    .mobile-dn {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-dn {
+        display: none !important;
+    }
+}
+
